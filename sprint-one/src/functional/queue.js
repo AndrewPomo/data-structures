@@ -13,9 +13,9 @@ var Queue = function() {
 
   someInstance.dequeue = function() {
     var keys = Object.keys(storage);
-    var lastKey = keys[0];
-    var dequeueing = storage[lastKey];
-    delete storage[lastKey];
+    var leastRecent = keys[0];
+    var dequeueing = storage[leastRecent];
+    delete storage[leastRecent];
     return dequeueing;
   };
 
