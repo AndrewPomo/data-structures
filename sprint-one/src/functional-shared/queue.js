@@ -4,6 +4,8 @@ var Queue = function() {
 
   var newQueue = {};
   newQueue.storage = {};
+  newQueue.high = 0;
+  newQueue.low = 0;
 
   _.extend(newQueue, queueMethods);
 
@@ -12,21 +14,21 @@ var Queue = function() {
 
 var queueMethods = {};
 
-var counter = 0;
-
 queueMethods.size = function() {
-  return Object.keys(this.storage).length;
+  if (this.high <= this.low) {
+    return 0;
+  }
+  return this.high - this.low;
 };
 
 queueMethods.enqueue = function(value) {
-  this.storage[counter] = value;
-  counter++; 
+  this.high++; 
+  this.storage[this.high] = value;
 };
 
 queueMethods.dequeue = function() {
-  var keys = Object.keys(this.storage);
-  var leastRecent = keys[0];
-  var dequeueing = this.storage[leastRecent];
-  delete this.storage[leastRecent];
+  this.low++;
+  var dequeueing = this.storage[this.low];
+  delete dequeueing;
   return dequeueing;
 };
