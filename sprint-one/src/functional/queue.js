@@ -15,7 +15,7 @@ var Queue = function() {
   someInstance.dequeue = function() {
     low++;
     var dequeueing = storage[low];
-    delete storage[low];
+    delete dequeueing;
     return dequeueing;
   };
 
@@ -28,9 +28,3 @@ var Queue = function() {
 
   return someInstance;
 };
-
-// high is 0, 
-// { 
-//   3: val,   //high is 4, add, low is 3
-//   4: val   //high is 4, add, low is 3
-// }
