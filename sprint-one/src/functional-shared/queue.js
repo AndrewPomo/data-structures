@@ -5,15 +5,9 @@ var Queue = function() {
   var newQueue = {};
   newQueue.storage = {};
 
-  extend(newQueue, queueMethods);
+  _.extend(newQueue, queueMethods);
 
   return newQueue;
-};
-
-var extend = function(to, from) {
-  for (var key in from) {
-    to[key] = from[key];
-  }
 };
 
 var queueMethods = {};

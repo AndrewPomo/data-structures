@@ -4,16 +4,10 @@ var Stack = function() {
   var newStack = {};
   newStack.storage = {};
   
-  extend(newStack, stackMethods);
+  _.extend(newStack, stackMethods);
 
   return newStack;
 
-};
-
-var extend = function(to, from) {
-  for (var key in from) {
-    to[key] = from[key];
-  }
 };
 
 var stackMethods = {};
